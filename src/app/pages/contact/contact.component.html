@@ -1,0 +1,64 @@
+<!--
+  Template Forms
+  - more simple
+  - you grab form values with ngModel and you make variables for each
+  - perfect for simple forms that don't require much logic
+
+  Reactive Forms
+  - a bit more complex
+  - you grab form values within the .ts file using formGroup/formControl & formControlName
+  - perfect for complex forms that require a bit more logic
+-->
+
+<div class="form-container">
+  <h1>Contact Us</h1>
+  <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
+    <div class="input-container">
+      <label for="name">Name</label>
+      <!--Utilizing class binding [class.~name of css class~]="~your condition~"-->
+      <input type="text" name="name" formControlName="name" [class.input-invalid]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+      <!--Utilizing angular directive/control flow @if-->
+      @if (contactForm.get('name')?.invalid && contactForm.get('name')?.touched) {
+        <span style="color: red">PLEASE ENTER A NAME</span>
+      }
+    </div>
+    <div class="input-container">
+      <label for="email">Email</label>
+      <input type="text" name="email" formControlName="email" [class.input-invalid]="contactForm.get('email')?.invalid">
+    </div>
+    <div class="input-container">
+      <label for="phone">Phone</label>
+      <input type="text" name="phone" formControlName="phone" [class.input-invalid]="contactForm.get('phone')?.invalid">
+    </div>
+    <div class="input-container">
+      <label for="message">Message</label>
+      <textarea name="message" rows="6" formControlName="message"></textarea>
+    </div>
+    <button type="submit" [disabled]="contactForm.invalid" [class.disabled]="contactForm.invalid">Submit Form</button>
+  </form>
+</div>
+
+<!--Template Form-->
+<!-- <div class="form-container">
+  <h1>Contact Us</h1>
+  <form>
+    <div class="input-container">
+      <label for="name">Name</label>
+      <input type="text" name="name" [(ngModel)]="name">
+    </div>
+    <div class="input-container">
+      <label for="email">Email</label>
+      <input type="text" name="email" [(ngModel)]="email">
+    </div>
+    <div class="input-container">
+      <label for="phone">Phone</label>
+      <input type="text" name="phone" [(ngModel)]="phone">
+    </div>
+    <div class="input-container">
+      <label for="message">Message</label>
+      <textarea name="message" rows="6" [(ngModel)]="message"></textarea>
+    </div>
+    (click) on a form is VERY bad practice
+    <button (click)="submitForm()">Submit Form</button>
+  </form>
+</div> -->

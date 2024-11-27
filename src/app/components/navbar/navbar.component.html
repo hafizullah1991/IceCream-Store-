@@ -1,0 +1,10 @@
+<div class="container">
+  <img src="assets/logo.webp" alt="logo">
+  <div class="nav-links">
+    <div routerLink="/home" class="nav-link" [class.active]="sharedService.getRoute() === '/home'">Home</div>
+    <div routerLink="/about" class="nav-link" [class.active]="sharedService.getRoute() === '/about'">About</div>
+    <div routerLink="/menu" class="nav-link" [class.active]="sharedService.getRoute() === '/menu'">Menu</div>
+    <div routerLink="/contact" class="nav-link" [class.active]="sharedService.getRoute() === '/contact'">Contact</div>
+    <!-- <div routerLink="/observable" class="nav-link" [class.active]="sharedService.getRoute() === '/observable'">Observables</div> -->
+  </div>
+</div>

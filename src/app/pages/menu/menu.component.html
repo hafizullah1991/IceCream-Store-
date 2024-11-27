@@ -1,0 +1,89 @@
+<div class="form-container">
+  <h1>Add Menu Form</h1>
+  <form [formGroup]="iceCreamForm" (ngSubmit)="addItem()">
+    <div class="input-container">
+      <label for="name">Name</label>
+      <input type="text" formControlName="name" placeholder="Name">
+    </div>
+    <div class="input-container">
+      <label for="price">Price</label>
+      <input type="text" formControlName="price" placeholder="Price">
+    </div>
+    <div class="input-container">
+      <label for="calories">Calories</label>
+      <input type="text" formControlName="calories" placeholder="Calories">
+    </div>
+    <div class="input-container">
+      <label for="category">Category</label>
+      <input type="text" formControlName="category" placeholder="Cateogry">
+    </div>
+    <div class="input-container">
+      <label for="description">Description</label>
+      <textarea name="description" row="8" formControlName="description" placeholder="Add description here"></textarea>
+    </div>
+    <button type="submit">Add Menu Item</button>
+  </form>
+</div>
+
+
+
+
+<div class="menu-items-container">
+  <div class="menu-items">
+    @if (showData()) {
+      @for(item of iceCreams(); track item) {
+        <div class="menu-card">
+          <div class="menu-card__content">
+            <h3 class="menu-card__title">{{ item.name }}</h3>
+            <p class="menu-card__description">{{ item.description }}</p>
+            <div class="menu-card__details">
+              <span class="menu-card__price">${{ item.price }}</span>
+              <span class="menu-card__calories">{{ item.calories }} cal</span>
+            </div>
+            <div class="button-container">
+              <!-- <button class="menu-card__button" style="background: rgb(212, 138, 0)" (click)="this.showEditForm.set(true)">Edit</button> -->
+              <button class="menu-card__button" style="background: red;" (click)="deleteItem(item.id)">Delete</button>
+            </div>
+          </div>
+        </div>      
+      }
+    } @else {
+      @if (showError()) {
+        <strong style="font-size: 2.1rem;">There is an error! Please contact your developer.</strong>
+      } @else {
+        <div class="loader"></div>
+      }
+    }
+  </div>
+  <!-- @if (showEditForm()) {
+    <div class="modal">
+      <button (click)="showEditForm.set(false)">Close Form</button>
+      <div class="form-container">
+        <h1>Edit Menu Form</h1>
+        <form>
+          <div class="input-container">
+            <label for="name">Name</label>
+            <input type="text" formControlName="name" placeholder="Name">
+          </div>
+          <div class="input-container">
+            <label for="price">Price</label>
+            <input type="text" formControlName="price" placeholder="Price">
+          </div>
+          <div class="input-container">
+            <label for="calories">Calories</label>
+            <input type="text" formControlName="calories" placeholder="Calories">
+          </div>
+          <div class="input-container">
+            <label for="category">Category</label>
+            <input type="text" formControlName="category" placeholder="Cateogry">
+          </div>
+          <div class="input-container">
+            <label for="description">Description</label>
+            <textarea name="description" row="8" formControlName="description" placeholder="Add description here"></textarea>
+          </div>
+          <button type="submit">Update Menu Item</button>
+        </form>
+      </div>
+    </div>
+  } -->
+</div>

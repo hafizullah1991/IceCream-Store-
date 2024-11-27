@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 30px;
+  padding-top: 30px;
+  width: 100vw;
+
+  img {
+    max-width: 250px;
+  }
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-link {
+  color: black;
+  font-size: 1.8rem;
+  font-family: "Sour Gummy", sans-serif;
+  padding: 10px;
+  transition: 0.1s linear;
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-4px);
+    color: rgb(189, 0, 157);
+  }
+}
+
+.active {
+  color: rgb(189, 0, 157);
+}

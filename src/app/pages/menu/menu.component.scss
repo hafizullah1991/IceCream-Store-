@@ -1,0 +1,190 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.menu-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 10px 10px 50px;
+}
+
+.menu-card {
+  width: 300px;
+  border: 2px solid #f0a4b7;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: rgb(255, 255, 255);
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.menu-card__image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.menu-card__content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 220px;
+}
+
+.menu-card__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 8px;
+  font-family: "Sour Gummy", sans-serif;
+}
+
+.menu-card__description {
+  font-size: 1rem;
+  color: #555;
+  margin: 0 0 16px;
+}
+
+.menu-card__details {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 8px 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.menu-card__price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #25446f;
+}
+
+.menu-card__calories {
+  font-size: 1.2rem;
+  font-family: "Sour Gummy", sans-serif;
+  color: #888;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.menu-card__button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #2c7a7b;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.menu-card__button:hover {
+  background-color: #285e61;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 30px;
+  animation: l1 1s linear infinite alternate;
+  margin-top: 100px;
+}
+.loader:before {
+  content:"Loading..."
+}
+@keyframes l1 {to{opacity: 0}}
+
+// Form Styles
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 20px 20px;
+  margin-bottom: 50px;
+
+  h1 {
+    margin: 0;
+    font-size: 2.3rem;
+    color: black;
+    font-family: "Sour Gummy", sans-serif;
+  }
+
+  button {
+    margin-top: 10px;
+    width: 100%;
+    border: 2px solid black;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: rgb(142, 30, 121);
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    transition: 0.1s linear;
+
+    &:hover {
+      cursor: pointer;
+      filter: brightness(130%);
+    }
+  }
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+
+  label {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  input, textarea {
+    border: 2px solid black;
+    outline: none;
+    padding: 10px;
+    font-size: 1.1rem;
+    width: 400px;
+  }
+
+  textarea {
+    height: 120px;
+  }
+}
+
+.menu-items-container {
+  position: relative;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  padding: 10px;
+  background-color: white;
+  border-radius: 20px;
+  border: 5px solid black;
+}

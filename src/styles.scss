@@ -1,0 +1,33 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+//Change to main color
+$myapp-theme-primary: mat.m2-define-palette(mat.$m2-pink-palette, A400, A100, A700);
+$myapp-theme-accent: mat.m2-define-palette(mat.$m2-indigo-palette);
+$myapp-theme-warn: mat.m2-define-palette(mat.$m2-red-palette);
+
+$myapp-theme: mat.m2-define-light-theme((
+  color: (
+    primary: $myapp-theme-primary,
+    accent: $myapp-theme-accent,
+    warn: $myapp-theme-warn,
+  )
+));
+
+@include mat.all-component-themes($myapp-theme);
+
+//Change to main color
+:root {
+  --swiper-navigation-color: pink;
+  --swiper-pagination-color: pink;
+}
+
+body {
+  margin: 0;
+  background-color: rgb(238, 217, 220);
+  overflow-x: hidden;
+}
+
+html, body { 
+  height: 100%; 
+}
